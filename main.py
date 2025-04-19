@@ -1,4 +1,3 @@
-import os
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 
 TOKEN = '7922002458:AAG87Cpd7j5shClnOiLnuVb1wre5-X3DwEQ'
