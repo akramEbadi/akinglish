@@ -1,13 +1,7 @@
 import os
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 
-TOKEN = os.getenv("TOKEN")
-PORT = int(os.getenv("PORT", 8080))  # Railway به صورت خودکار پورت تعیین می‌کند.
-WEBHOOK_DOMAIN = os.getenv("WEBHOOK_DOMAIN")  # مثلا: https://yourproject.up.railway.app
-
-if not TOKEN or not WEBHOOK_DOMAIN:
-    raise ValueError("توکن یا آدرس دامنه Railway تنظیم نشده! لطفا در بخش Variables مقدار TOKEN و WEBHOOK_DOMAIN را وارد کن.")
-
+TOKEN = '7922002458:AAG87Cpd7j5shClnOiLnuVb1wre5-X3DwEQ'
 
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
@@ -162,15 +156,8 @@ def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_word))
 
-#     print("Bot is running...")
-#     app.run_polling()
+    print("Bot is running...")
+    app.run_polling()
 
-# if __name__ == "__main__":
-#     main()
-
-    # فعال کردن Webhook
-    app.run_webhook(
-    listen="0.0.0.0",
-    port=PORT,
-    webhook_url=f"{WEBHOOK_DOMAIN}/webhook/{TOKEN}"
-)
+if __name__ == "__main__":
+    main()
